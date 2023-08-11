@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'company',
     'devices',
 
+    # Third party
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# Authentication settings
+AUTHENTICATION_BACKENDS = [
+    'authentication.backends.CustomUserBackend',
+    'django.contrib.auth.backends.ModelBackend',  
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
