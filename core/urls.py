@@ -22,6 +22,7 @@ urlpatterns = [
     path('user/', include("authentication.urls.user_urls")),
     # Company Module
     path("company/", include("company.urls.manage_company_urls")),
+    path("employee/", include("company.urls.manage_employee_urls")),
     # Device Module
     path("devices/", include("devices.urls.manage_device_urls")),
 ]
