@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # Third party
     'rest_framework',
     'rest_framework.authtoken',
+	'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -143,4 +144,23 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'RepliQ Django Test',
+    'DESCRIPTION': '',
+    'VERSION': '1.0.0',
+    'DEFAULTS': {
+        'TEMPLATES': [
+            'drf_spectacular.TemplateConfig',
+        ],
+    },
+    
+    "SWAGGER_UI_SETTINGS": {
+        "deepLinking": True,
+        "persistAuthorization": True,
+        # "displayOperationId": True,
+    },
+    "SWAGGER_UI_DIST": "//unpkg.com/swagger-ui-dist@3.35.1",
 }
